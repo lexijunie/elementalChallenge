@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://i.ibb.co/hYWGVvg/Component-1.jpg" alt="logo">
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+    </nav>
+
+<main>
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="slide">
+                <img src="https://i.ibb.co/QkdxYLP/pexels-steve-1981468.jpg" alt="Afrocentric 4">
+            </div>
+            <div class="slide">
+                <img src="https://i.ibb.co/0nhPDJ1/pexels-lilartsy-1257890.jpg" alt="Afrocentric 1">
+            </div>
+            <div class="slide">
+                <img src="https://i.ibb.co/PcGymvF/pexels-cottonbro-9499864.jpg" alt="Afrocentric 2">
+            </div>
+            <div class="slide">
+                <img src="https://i.ibb.co/N9GhpwW/pexels-punttim-139764.jpg" alt="Afrocentric 3">
+            </div>
+            
+            <div class="navigation">
+                <span class="prev" onclick="plusSlides(-1)">&gt;</span>
+                <span class="next" onclick="changeSlide(1)"><img class="next-arrow" src="https://i.ibb.co/zhPPK5v/slide.png" alt=""></span>
+            </div>
+            
+            <div class="circles">
+                <span class="small-circle" onclick="currentSlide(1)"></span>
+                <span class="small-circle" onclick="currentSlide(2)"></span>
+                <span class="small-circle" onclick="currentSlide(3)"></span>
+                <span class="small-circle" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+        <div class="right-overlay">
+            <p>Look Beyond The Ordinary</p>
+        </div>
+        <div class="left-overlay">
+            <p>T</p>
+        </div>
+    </section>
+        
+    </section>
+        <div class="content-section">
+            <div class="content-container">
+                <div class="text-block">
+                    <p>Visio is an investment management firm initially founded by Patrice Moyal in 2003. The nimble, highly focused and dynamic team manage assets across listed strategies for a diversified client base that includes some of the world's largest and most sophisticated investors.</p>
+                </div>
+                <div class="image-section">
+                    <img src="https://i.ibb.co/g7FDTFN/1.png" alt="Signs">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section>
+        <div class="blocks-section">
+            <div class="box">
+                <p class="arrow"> &gt; </p>
+                <h4 class="box-text"><span>The visio <br>difference</span></h4>
+            </div>
+            <div class="box">
+                <p class="arrow"> &gt; </p>
+                <h4 class="box-text"><span>Meet the <br>visio team</span> </h4>
+            </div>
+            <div class="box">
+                <p class="arrow"> &gt; </p>
+                <h4 class="box-text"><span>Our funds and<br>investments</span></h4>
+            </div>
+        </div>
+    </section>
+    <div class="item-box-section">
+        <div class="items-content">
+            <div class="small-box">Hedge Funds<p class="small-arrow"> &gt; </p></div>
+            <div class="small-box">Unit Trusts<p class="small-arrow"> &gt; </p></div>
+            <div class="small-box">Segregated Mandates<p class="small-arrow"> &gt; </p></div>
+            <div class="small-box">Africa Funds<p class="small-arrow"> &gt; </p></div>
+            <div class="small-box">Fund Performance<p class="small-arrow"> &gt; </p></div>
+            <div class="small-box">Risk Management<p class="small-arrow"> &gt; </p></div>
+        </div>
+    </div>
+  </main>
+    
+    
+    <script src="script/home.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function changeSlide(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let slides = $(".slide");
+                let circles = $(".small-circle");
+
+                if (n > slides.length) { slideIndex = 1; }
+                if (n < 1) { slideIndex = slides.length; }
+
+                slides.hide();
+                circles.removeClass("active");
+
+                slides.eq(slideIndex - 1).show();
+                circles.eq(slideIndex - 1).addClass("active");
+            }
+
+            $(".next").click(function() {
+                changeSlide(1);
+            });
+
+            $(".small-circle").click(function() {
+                let index = $(".small-circle").index(this) + 1;
+                currentSlide(index);
+            });
+        });
+    </script>
+  </body>
+</html>
